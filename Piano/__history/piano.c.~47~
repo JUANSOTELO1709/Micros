@@ -1,0 +1,120 @@
+#include <piano.h>
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, BROWNOUT
+#use delay(clock=4M)
+
+
+#use standard_io(B)
+#use fast_io(D)
+#use fast_io(A)
+#use fast_io(E)
+
+
+
+
+
+#INT_TIMER2
+void timer2_interrupcion(){
+      output_toggle(PIN_b0);
+
+}
+
+
+
+void main()
+
+{
+
+SET_TRIS_A(0xFF);
+Set_tris_E(0xff);
+set_tris_D(0x00);
+//lcd_init();
+//lcd_gotoxy(4,1);
+//printf(lcd_putc,"PIANO");
+   while(TRUE)
+   {
+
+  
+   if(input(PIN_A0)==1){         //Nota DO  .261.6 hz
+   while(input(PIN_A0)==1);
+         setup_timer_2(T2_div_BY_16,238,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+  } 
+  else
+      output_low(pin_b0);
+
+
+
+
+   if(input(PIN_A1)==1){            //nota RE   293.6hz
+   while(input(PIN_A1)==1);
+         setup_timer_2(T2_div_BY_16,212,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         
+    } 
+    else
+      output_low(pin_b0);
+
+
+   if(input(PIN_A2)==1){            //nota mi   329.6 hz
+   while(input(PIN_A2)==1);
+
+         setup_timer_2(T2_div_BY_16,188,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL); 
+    } 
+    else
+      output_low(pin_b0);
+
+
+
+   if(input(PIN_A3)==1){            //nota fa         349.2 hz
+   while(input(PIN_A3)==1);
+         setup_timer_2(T2_div_BY_16,178,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         
+   }
+   else
+      output_low(pin_b0);
+
+
+
+   if(input(PIN_A4)==1){            //nota sol              392 hz
+   while(input(PIN_A4)==1);
+         setup_timer_2(T2_div_BY_16,158,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+    } 
+    else
+      output_low(pin_b0);
+
+
+
+
+   if(input(PIN_A5)==1){            //nota la               440hz
+   while(input(PIN_A5)==1);
+         setup_timer_2(T2_div_BY_16,141,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+    }
+   else
+      output_low(pin_b0);
+
+
+
+
+   if(input(PIN_E2)==1){            //nota sii              493.8hz
+   while(input(PIN_E2)==1);
+         setup_timer_2(T2_div_BY_16,126,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+   } 
+   else
+      output_low(pin_b0);
+}
+
+
+}
+

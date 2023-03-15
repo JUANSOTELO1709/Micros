@@ -1,0 +1,64 @@
+
+ROM used:   519/8192 (6%)
+            519/8192 (6%) including unused fragments
+
+            0.4 Average locations per line
+            3.7 Average locations per statement
+
+RAM used:   10/368 (3%) at main() level
+            23/368 (6%) worst case
+
+Stack used: 4 worst case (4 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   32    13   9  main.c
+   10     0   0  main.h
+  672     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+  456    84  60  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\LCD.c
+  135    43  31  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd4x4.c
+----- -----
+ 1305   140 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     20   4    1             @delay_ms1
+ Inline         3    596  5.9  lcd_read_byte
+0      6   1    0     59  4.2  lcd_read_nibble
+0     17   3    1    179  3.3  lcd_send_nibble
+0     66  13    3    460  4.7  lcd_send_byte
+0     62  12    6    814  7.2  lcd_init
+0     18   3    4    208  6.3  lcd_gotoxy
+0     44   8    1    354  4.7  lcd_putc
+0     20   4    0    267  3.5  @const660
+0      3   1    0      3  0.0  kbd_init
+0    105  20    3   5861 10.2  kbd_getc
+0      8   2    0             @goto10667
+0     54  10    0    267  3.5  MAIN
+0      4   1    0             @const677
+0     88  17    4     43  2.1  @PSTRINGC7_647
+ Inline         0     44  1.9  @cinit1
+
+Program metrics:
+    Functions               13
+    Statements              140
+    Comments                249
+    Volume (V)              12498
+    Difficulty (D)          57.6
+    Effort to implement (E) 720262
+    Time to implement (T)   11 hours, 7 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   23
+    Maintainability (MI)    120
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   515  1529  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

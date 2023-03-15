@@ -1,0 +1,157 @@
+#include <piano.h>
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, BROWNOUT
+#use delay(clock=20M)
+
+
+#use standard_io(B)
+#use fast_io(D)
+
+
+
+
+
+#INT_TIMER2
+void timer2_interrupcion(){
+      output_toggle(PIN_b0);
+
+}
+
+
+
+void main()
+{
+   while(TRUE)
+   {
+   if(input(PIN_D0)==1){         //Nota DO
+   while(input(PIN_D0)==1);
+         delay_ms(200);
+         setup_timer_2(T2_div_BY_16,155,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         OUTPUT_LOW(PIN_B0);
+   else
+      output_low(pin_b0);
+}
+
+
+
+   if(input(PIN_D1)==1){            //nota RE
+   while(input(PIN_D1)==1);
+         delay_ms(200);
+         setup_timer_2(T2_div_BY_16,155,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         OUTPUT_LOW(PIN_B0);
+   else
+      output_low(pin_b0);
+}
+
+   if(input(PIN_D2)==1){            //nota mi
+   while(input(PIN_D2)==1);
+         delay_ms(200);
+         setup_timer_2(T2_div_BY_16,155,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         OUTPUT_LOW(PIN_B0);
+   else
+      output_low(pin_b0);
+}
+
+
+   if(input(PIN_D3)==1){            //nota fa
+   while(input(PIN_D3)==1);
+         delay_ms(200);
+         setup_timer_2(T2_div_BY_16,155,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         OUTPUT_LOW(PIN_B0);
+   else
+      output_low(pin_b0);
+}
+
+
+   if(input(PIN_D4)==1){            //nota sol
+   while(input(PIN_D4)==1);
+         delay_ms(200);
+         setup_timer_2(T2_div_BY_16,155,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         OUTPUT_LOW(PIN_B0);
+   else
+      output_low(pin_b0);
+}
+
+
+
+   if(input(PIN_D5)==1){            //nota la
+   while(input(PIN_D5)==1);
+         delay_ms(200);
+         setup_timer_2(T2_div_BY_16,155,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         OUTPUT_LOW(PIN_B0);
+   else
+      output_low(pin_b0);
+}
+
+
+
+   if(input(PIN_D6)==1){            //nota sii
+   while(input(PIN_D6)==1);
+         delay_ms(200);
+         setup_timer_2(T2_div_BY_16,155,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         OUTPUT_LOW(PIN_B0);
+   else
+      output_low(pin_b0);
+}
+
+
+
+
+
+
+
+}
+
+
+
+
+
+void re(){
+
+
+}
+
+
+void mi(){
+
+
+}
+
+
+void fa(){
+
+
+}
+
+
+void sol(){
+
+
+}
+
+
+void la(){
+
+
+}
+
+
+void si(){
+
+
+}
+
+

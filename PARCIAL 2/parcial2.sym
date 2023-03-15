@@ -1,0 +1,191 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+006     kbd
+008     PSP_DATA
+008     lcdlat
+008     lcd
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @TRIS_C
+021     kbd_getc.kbd_call_count
+022.0   kbd_getc.kbd_down
+023     kbd_getc.last_key
+024     kbd_getc.col
+025-026 strtok.save
+027     k
+028     num
+029-02A clave_subida
+02B     subida
+02C-02D clave_bajada
+02E     bajada
+02F-030 clave_ok
+031     ok
+032-033 clave_siete
+034     siete
+035-036 clave_doce
+037-038 doce
+039     late
+03A     capuchino
+03B     expreso
+03C     menu
+03D-03E a
+03F-040 temp
+041     temp_encendido
+042     kbd_getc.kchar
+042-045 @SFTOI.P1
+042-043 @ITOF.P2
+042-043 @PRINTF_LU_648.P3
+042-045 @MULFF.P4
+042     lcd_init.i
+042-043 strstr.s1
+042-045 atan2.y
+042     MAIN.@SCRATCH1
+042     @PSTRINGC7_648.@SCRATCH1
+042     lat.@SCRATCH1
+042     capuchi.@SCRATCH1
+042     exp.@SCRATCH1
+043     kbd_getc.row
+043-046 lcd_init.LCD_INIT_STRING
+043     MAIN.@SCRATCH2
+043     @PSTRINGC7_648.@SCRATCH2
+044-045 strstr.s2
+044     kbd_getc.@SCRATCH1
+044     @PSTRINGC7_648.@SCRATCH3
+044     @PRINTF_LU_648.@SCRATCH1
+045     @PSTRINGC7_648.@SCRATCH4
+045     @PRINTF_LU_648.@SCRATCH2
+046-049 @MULFF.P1
+046-049 atan2.x
+046-047 strstr.s
+046     @PRINTF_LU_648.@SCRATCH3
+047     lcd_init.@SCRATCH1
+047     @PRINTF_LU_648.@SCRATCH4
+048-049 strstr.t
+048     @PRINTF_LU_648.@SCRATCH5
+049     @PRINTF_LU_648.@SCRATCH6
+04A-04D atan2.z
+04A     @MULFF.@SCRATCH1
+04A     strstr.@SCRATCH1
+04A     @PRINTF_LU_648.@SCRATCH7
+04B     lcd_putc.c
+04B     @MULFF.@SCRATCH2
+04C     @delay_ms1.P1
+04C     lcd_gotoxy.x
+04C     @MULFF.@SCRATCH3
+04D     lcd_gotoxy.y
+04D     @MULFF.@SCRATCH4
+04E     lcd_gotoxy.address
+04E.0   atan2.sign
+04E     @MULFF.@SCRATCH5
+04F     atan2.quad
+04F     lcd_gotoxy.@SCRATCH1
+050     lcd_send_byte.address
+051     lcd_send_byte.n
+052     lcd_read_byte.low
+052     lcd_send_byte.@SCRATCH1
+053     lcd_read_byte.high
+053     lcd_send_nibble.n
+054     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  KEYS.call
+000008  KEYS.data
+000018  @const937.call
+00001B  @const939.call
+00001D  @const940.call
+000022  @const941.call
+000025  @const942.call
+000028  @const943.call
+00002D  @const944.call
+00002F  @const945.call
+000034  @const946.call
+000038  @const947.call
+00003A  @const948.call
+00003E  @const949.call
+000042  @const950.call
+000047  @const951.call
+000049  @const952.call
+00004C  @const956.call
+000051  @const958.call
+000055  @const960.call
+000058  @const961.call
+00005B  @const963.call
+000060  @const965.call
+000064  @delay_ms1
+000079  lcd_send_nibble
+000085  lcd_read_nibble
+00008B  lcd_send_byte
+000091  lcd_read_byte
+0000CB  lcd_init
+000109  kbd_init
+00010C  lcd_gotoxy
+00011E  lcd_putc
+00014A  @PSTRINGC7_648
+0001A0  kbd_getc
+000207  @goto11151
+00020F  strstr
+00025D  @ITOF
+00027A  @MULFF
+0002EF  @SFTOI
+00030E  @PRINTF_LU_648
+000371  electro
+000381  lat
+0003A2  capuchi
+0003C3  exp
+000800  @cinit1
+000800  MAIN
+000813  @cinit2
+000D8D  @goto11755
+
+Project Directory:
+    C:\Users\juand\Desktop\PARCIAL 2\
+
+Project Files:
+    parcial2.c                                              [27-oct.-22 20:35  CRC=EB190D65]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h  [18-abr.-14 16:56  CRC=4F277C97]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c      [24-sept.-22 11:52  CRC=D1A6378A]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\math.h     [28-sept.-12 11:35  CRC=546412C9]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\kbd4x4.c   [13-oct.-22 19:40  CRC=ADACD6A8]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\string.h   [10-abr.-14 09:04  CRC=662B2714]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h   [16-jul.-10 09:27  CRC=897CEC6C]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h    [03-ene.-08 13:55  CRC=2D1F019F]
+
+Source signature=57DDC1B5
+
+Units:
+    parcial2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   parcial2.xsym
+    Errors:      parcial2.err
+    Ext Symbols: parcial2.esym
+    INHX8:       parcial2.hex
+    Symbols:     parcial2.sym
+    List:        parcial2.lst
+    Debug/COFF:  parcial2.cof
+    Project:     parcial2.ccspjt
+    Call Tree:   parcial2.tre
+    Statistics:  parcial2.STA

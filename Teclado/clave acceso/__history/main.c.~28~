@@ -1,0 +1,80 @@
+#include <main.h>
+#use standard_io(D)
+#use standard_io(B)
+#use fast_io(E)
+
+#include <LCD.c>
+#include <string.h>
+#include <kbd4x4.c>
+
+char k;
+
+
+int num=0;
+char clave_entrada[] = "#";
+char clave [1];
+
+int menu=0;
+
+void main()
+{
+   lcd_init();
+   kbd_init();
+   port_b_pullups(true);
+
+      
+
+   while(TRUE)
+   {
+
+switch (menu);
+case 0:
+      lcd_putc('\f');
+      lcd_gotoxy(1,1);
+      lcd_putc("INGRESAR CLAVE");
+num = 0;
+      
+while(num<1){
+         k=kbd_getc();
+         if(k != 0){
+           
+          clave[num]=k;
+           num++;
+          lcd_gotoxy(num+1,2);
+          lcd_putc(k);
+               
+            }
+         }
+      delay_ms(150);
+
+
+if(strstr(clave , clave_entrada)){
+      output_high(PIN_E0);
+      output_low(PIN_E1);
+      lcd_putc('\f');
+      lcd_gotoxy(1,1);
+      lcd_putc(" clave correcta");
+      menu++;
+
+  delay_ms(100);
+      lcd_gotoxy(1,2);
+      lcd_putc(" Adelante!");
+delay_ms(150);
+}
+else {
+      output_high(PIN_E1);
+      output_low(PIN_E0);
+      lcd_putc('\f');
+      lcd_gotoxy(1,1);
+      lcd_putc("  clave erronea");
+  delay_ms(150);
+
+}
+break;
+case 1:
+      lcd_putc('\f');
+
+
+      
+}
+}

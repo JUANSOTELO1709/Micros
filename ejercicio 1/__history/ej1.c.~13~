@@ -1,0 +1,47 @@
+#include <16f877a.h>       // incluir libreria de el pic utilizado
+
+
+#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT        // fusibles estandares
+
+#use fast_io(A)
+
+
+int boton1;
+void led();                                  //prototipos
+
+
+
+void main(){                        //funcion que lee todo codigo para generar en el pic
+
+set_tris_a(0b11110000);
+
+
+
+while(true){
+
+
+
+output_high(PIN_A1);
+
+if(input(PIN_A5)==1){   
+ while(input(PIN_A1)==1){
+boton1=1;
+ }
+}
+else
+boton1=0;
+
+if(boton1==1) {
+output_high(PIN_A3);
+}
+
+
+}
+
+
+
+}
+
+
+
+

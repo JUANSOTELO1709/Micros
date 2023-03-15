@@ -1,0 +1,45 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\juand\Desktop\micros\Teclado\Uso\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=3
+D1=13-10-2022
+D1_L=5
+D1_L1=[70211]Project Opened.
+D1_L2=[70248]Started Editing.
+D1_L3=[71097]Stopped Editing.
+D1_L4=[72009]Started Editing.
+D1_L5=[72309]Stopped Editing.
+TotalEdit=10
+TotalDebug=0
+D2=14-10-2022
+D2_E=10
+D2_D=0
+D2_L=1
+D2_L1=[4311]Project Closed.
+D3=17-10-2022
+D3_L=3
+D3_L1=[78603]Project Opened.
+D3_L2=[79004]Started Editing.
+D3_L3=[79010]Project Closed.
+
+[Opened Files]
+1=main.c
+2=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

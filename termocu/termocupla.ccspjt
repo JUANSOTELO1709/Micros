@@ -1,0 +1,50 @@
+[PROJECT]
+Target=termocupla.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.025
+Compiler=PCM
+[Target Data]
+FileList=termocupla.c
+[termocupla.c]
+Type=4
+[mru-list]
+1=termocupla.c
+
+[ProjectLog]
+Days=4
+D1=26-10-2022
+D1_L=6
+D1_L1=[7398]Stopped Editing.
+D1_L2=[7472]Started Editing.
+D1_L3=[8031]Stopped Editing.
+D1_L4=[74458]Started Editing.
+D1_L5=[74758]Stopped Editing.
+D1_L6=[82754]Project Closed.
+D2=27-10-2022
+D2_L=1
+D2_L1=[77805]Project Opened.
+D3=11-11-2022
+D3_L=11
+D3_L1=[1778]Project Opened.
+D3_L2=[6942]Started Editing.
+D3_L3=[7361]Stopped Editing.
+D3_L4=[7495]Started Editing.
+D3_L5=[8011]Stopped Editing.
+D3_L6=[9233]Started Editing.
+D3_L7=[9271]Project Closed.
+D3_L8=[9297]Project Opened.
+D3_L9=[9742]Project Closed.
+D3_L10=[9951]Project Opened.
+D3_L11=[10019]Project Closed.
+D4=15-11-2022
+D4_L=1
+D4_L1=[72170]Project Opened.
+
+[Opened Files]
+1=termocupla.c
+2=max6675.c
+3=
+4=
+[Units]
+Count=1
+1=termocupla (main)

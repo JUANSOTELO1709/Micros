@@ -1,0 +1,36 @@
+libreria de tevlado  ( KBD.C)
+kdb4x4.c 
+
+-----------------------------------------------------------------
+Libreria de lcd  (lcd.c)
+
+
+-----------------------------------------------------------------
+libreria de matematica (math)
+
+
+-----------------------------------------------------------------
+Activar analogos
+
+setup_adc(adc_clock_internal);
+setup_adc_ports(all_analog);
+
+-----------------------------------------------------------------
+PWM
+
+setup_timer_2(t2_div_by_16,155,1);
+setup_ccp1(ccp_pwm);
+
+-----------------------------------------------------------------
+
+Timer2
+
+use standard_io (b)
+#INT_TIMER2
+toggle--
+
+setup_timer_2
+
+enable_interrupts(INT_TIMER2);
+enable_interrupts(GLOBAL);
+-----------------------------------------------------------------

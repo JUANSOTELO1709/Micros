@@ -1,0 +1,78 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\juand\Desktop\micros\Teclado\clave acceso\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=4
+D1=17-10-2022
+D1_L=3
+D1_L1=[79062]Project Opened.
+D1_L2=[79070]Started Editing.
+D1_L3=[79376]Stopped Editing.
+D2=18-10-2022
+D2_L=10
+D2_L1=[420]Started Editing.
+D2_L2=[2439]Stopped Editing.
+TotalEdit=65
+TotalDebug=0
+D2_E=35
+D2_D=0
+D2_L3=[2439]Project Closed.
+D2_L4=[2489]Project Opened.
+D2_L5=[2500]Started Editing.
+D2_L6=[2511]Stopped Editing.
+D2_L7=[2511]Project Closed.
+D2_L8=[66355]Project Opened.
+D2_L9=[66377]Started Editing.
+D2_L10=[66383]Project Closed.
+D3=22-10-2022
+D3_L=8
+D3_L1=[70770]Project Opened.
+D3_L2=[70776]Started Editing.
+D3_L3=[70925]Stopped Editing.
+D3_E=7
+D3_D=0
+D3_L4=[70925]Project Closed.
+D3_L5=[71969]Project Opened.
+D3_L6=[71983]Started Editing.
+D3_L7=[72194]Stopped Editing.
+D3_L8=[72194]Project Closed.
+D4=05-01-2023
+D4_L=12
+D4_L1=[55615]Project Opened.
+D4_L2=[55661]Started Editing.
+D4_L3=[56569]Stopped Editing.
+D4_L4=[57149]Started Editing.
+D4_L5=[57688]Stopped Editing.
+D4_L6=[61607]Started Editing.
+D4_L7=[61914]Stopped Editing.
+D4_E=23
+D4_D=0
+D4_L8=[62557]Started Editing.
+D4_L9=[62857]Stopped Editing.
+D4_L10=[67251]Started Editing.
+D4_L11=[67690]Stopped Editing.
+D4_L12=[67690]Project Closed.
+
+[Opened Files]
+1=..\..\..\motore\motor.c
+2=
+3=main.c
+4=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd4x4.c
+5=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

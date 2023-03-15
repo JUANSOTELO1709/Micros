@@ -1,0 +1,378 @@
+CCS PCM C Compiler, Version 5.025, 63725               10-oct.-22 22:59
+
+               Filename:   C:\Users\juand\Desktop\micros\Piano\piano.lst
+
+               ROM used:   219 words (3%)
+                           Largest free fragment is 2048
+               RAM used:   13 (4%) at main() level
+                           13 (4%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   03A
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  MOVLW  8C
+0018:  MOVWF  04
+0019:  BTFSS  00.1
+001A:  GOTO   01D
+001B:  BTFSC  0C.1
+001C:  GOTO   02E
+001D:  MOVF   22,W
+001E:  MOVWF  04
+001F:  MOVF   23,W
+0020:  MOVWF  77
+0021:  MOVF   24,W
+0022:  MOVWF  78
+0023:  MOVF   25,W
+0024:  MOVWF  79
+0025:  MOVF   26,W
+0026:  MOVWF  7A
+0027:  MOVF   20,W
+0028:  MOVWF  0A
+0029:  SWAPF  21,W
+002A:  MOVWF  03
+002B:  SWAPF  7F,F
+002C:  SWAPF  7F,W
+002D:  RETFIE
+002E:  BCF    0A.3
+002F:  BCF    0A.4
+0030:  GOTO   031
+.................... #include <piano.h> 
+.................... #include <16F877A.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=16 
+....................  
+.................... #FUSES NOWDT                 	//No Watch Dog Timer 
+.................... #FUSES NOBROWNOUT            	//No brownout reset 
+.................... #FUSES NOLVP                 	//No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+....................  
+.................... #use delay(crystal=20000000) 
+....................  
+....................  
+.................... #fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, BROWNOUT 
+.................... #use delay(clock=4M) 
+....................  
+....................  
+.................... #use standard_io(B) 
+.................... #use fast_io(D) 
+.................... #use fast_io(A) 
+.................... #use fast_io(E) 
+....................  
+....................  
+....................  
+....................  
+....................  
+.................... #INT_TIMER2 
+.................... void timer2_interrupcion(){ 
+....................       output_toggle(PIN_b0); 
+0031:  BSF    03.5
+0032:  BCF    06.0
+0033:  MOVLW  01
+0034:  BCF    03.5
+0035:  XORWF  06,F
+....................  
+0036:  BCF    0C.1
+0037:  BCF    0A.3
+0038:  BCF    0A.4
+0039:  GOTO   01D
+.................... } 
+....................  
+....................  
+....................  
+.................... void main() 
+003A:  MOVF   03,W
+003B:  ANDLW  1F
+003C:  MOVWF  03
+003D:  BSF    03.5
+003E:  BSF    1F.0
+003F:  BSF    1F.1
+0040:  BSF    1F.2
+0041:  BCF    1F.3
+0042:  MOVLW  07
+0043:  MOVWF  1C
+0044:  BCF    03.7
+....................  
+.................... { 
+....................  
+.................... SET_TRIS_A(0xFF); 
+0045:  MOVLW  FF
+0046:  MOVWF  05
+.................... Set_tris_E(0xff); 
+0047:  BSF    09.0
+0048:  BSF    09.1
+0049:  BSF    09.2
+.................... set_tris_D(0x00); 
+004A:  MOVLW  00
+004B:  MOVWF  08
+.................... //lcd_init(); 
+.................... //lcd_gotoxy(4,1); 
+.................... //printf(lcd_putc,"PIANO"); 
+....................    while(TRUE) 
+....................    { 
+....................  
+....................    
+....................    if(input(PIN_A0)==1){         //Nota DO  .261.6 hz 
+004C:  BCF    03.5
+004D:  BTFSS  05.0
+004E:  GOTO   05D
+....................    while(input(PIN_A0)==1); 
+004F:  BTFSC  05.0
+0050:  GOTO   04F
+....................          setup_timer_2(T2_div_BY_16,238,1); 
+0051:  MOVLW  00
+0052:  MOVWF  78
+0053:  IORLW  06
+0054:  MOVWF  12
+0055:  MOVLW  EE
+0056:  BSF    03.5
+0057:  MOVWF  12
+....................          enable_interrupts(INT_TIMER2); 
+0058:  BSF    0C.1
+....................          enable_interrupts(GLOBAL); 
+0059:  MOVLW  C0
+005A:  BCF    03.5
+005B:  IORWF  0B,F
+....................   }  
+005C:  GOTO   061
+....................   else 
+....................       output_low(pin_b0); 
+005D:  BSF    03.5
+005E:  BCF    06.0
+005F:  BCF    03.5
+0060:  BCF    06.0
+....................  
+....................  
+....................  
+....................  
+....................    if(input(PIN_A1)==1){            //nota RE   293.6hz 
+0061:  BTFSS  05.1
+0062:  GOTO   071
+....................    while(input(PIN_A1)==1); 
+0063:  BTFSC  05.1
+0064:  GOTO   063
+....................          setup_timer_2(T2_div_BY_16,212,1); 
+0065:  MOVLW  00
+0066:  MOVWF  78
+0067:  IORLW  06
+0068:  MOVWF  12
+0069:  MOVLW  D4
+006A:  BSF    03.5
+006B:  MOVWF  12
+....................          enable_interrupts(INT_TIMER2); 
+006C:  BSF    0C.1
+....................          enable_interrupts(GLOBAL); 
+006D:  MOVLW  C0
+006E:  BCF    03.5
+006F:  IORWF  0B,F
+....................           
+....................     }  
+0070:  GOTO   075
+....................     else 
+....................       output_low(pin_b0); 
+0071:  BSF    03.5
+0072:  BCF    06.0
+0073:  BCF    03.5
+0074:  BCF    06.0
+....................  
+....................  
+....................    if(input(PIN_A2)==1){            //nota mi   329.6 hz 
+0075:  BTFSS  05.2
+0076:  GOTO   085
+....................    while(input(PIN_A2)==1); 
+0077:  BTFSC  05.2
+0078:  GOTO   077
+....................  
+....................          setup_timer_2(T2_div_BY_16,188,1); 
+0079:  MOVLW  00
+007A:  MOVWF  78
+007B:  IORLW  06
+007C:  MOVWF  12
+007D:  MOVLW  BC
+007E:  BSF    03.5
+007F:  MOVWF  12
+....................          enable_interrupts(INT_TIMER2); 
+0080:  BSF    0C.1
+....................          enable_interrupts(GLOBAL);  
+0081:  MOVLW  C0
+0082:  BCF    03.5
+0083:  IORWF  0B,F
+....................     }  
+0084:  GOTO   089
+....................     else 
+....................       output_low(pin_b0); 
+0085:  BSF    03.5
+0086:  BCF    06.0
+0087:  BCF    03.5
+0088:  BCF    06.0
+....................  
+....................  
+....................  
+....................    if(input(PIN_A3)==1){            //nota fa         349.2 hz 
+0089:  BTFSS  05.3
+008A:  GOTO   099
+....................    while(input(PIN_A3)==1); 
+008B:  BTFSC  05.3
+008C:  GOTO   08B
+....................          setup_timer_2(T2_div_BY_16,178,1); 
+008D:  MOVLW  00
+008E:  MOVWF  78
+008F:  IORLW  06
+0090:  MOVWF  12
+0091:  MOVLW  B2
+0092:  BSF    03.5
+0093:  MOVWF  12
+....................          enable_interrupts(INT_TIMER2); 
+0094:  BSF    0C.1
+....................          enable_interrupts(GLOBAL); 
+0095:  MOVLW  C0
+0096:  BCF    03.5
+0097:  IORWF  0B,F
+....................           
+....................    } 
+0098:  GOTO   09D
+....................    else 
+....................       output_low(pin_b0); 
+0099:  BSF    03.5
+009A:  BCF    06.0
+009B:  BCF    03.5
+009C:  BCF    06.0
+....................  
+....................  
+....................  
+....................    if(input(PIN_A4)==1){            //nota sol              392 hz 
+009D:  BTFSS  05.4
+009E:  GOTO   0AD
+....................    while(input(PIN_A4)==1); 
+009F:  BTFSC  05.4
+00A0:  GOTO   09F
+....................          setup_timer_2(T2_div_BY_16,158,1); 
+00A1:  MOVLW  00
+00A2:  MOVWF  78
+00A3:  IORLW  06
+00A4:  MOVWF  12
+00A5:  MOVLW  9E
+00A6:  BSF    03.5
+00A7:  MOVWF  12
+....................          enable_interrupts(INT_TIMER2); 
+00A8:  BSF    0C.1
+....................          enable_interrupts(GLOBAL); 
+00A9:  MOVLW  C0
+00AA:  BCF    03.5
+00AB:  IORWF  0B,F
+....................     }  
+00AC:  GOTO   0B1
+....................     else 
+....................       output_low(pin_b0); 
+00AD:  BSF    03.5
+00AE:  BCF    06.0
+00AF:  BCF    03.5
+00B0:  BCF    06.0
+....................  
+....................  
+....................  
+....................  
+....................    if(input(PIN_A5)==1){            //nota la               440hz 
+00B1:  BTFSS  05.5
+00B2:  GOTO   0C1
+....................    while(input(PIN_A5)==1); 
+00B3:  BTFSC  05.5
+00B4:  GOTO   0B3
+....................          setup_timer_2(T2_div_BY_16,141,1); 
+00B5:  MOVLW  00
+00B6:  MOVWF  78
+00B7:  IORLW  06
+00B8:  MOVWF  12
+00B9:  MOVLW  8D
+00BA:  BSF    03.5
+00BB:  MOVWF  12
+....................          enable_interrupts(INT_TIMER2); 
+00BC:  BSF    0C.1
+....................          enable_interrupts(GLOBAL); 
+00BD:  MOVLW  C0
+00BE:  BCF    03.5
+00BF:  IORWF  0B,F
+....................     } 
+00C0:  GOTO   0C5
+....................    else 
+....................       output_low(pin_b0); 
+00C1:  BSF    03.5
+00C2:  BCF    06.0
+00C3:  BCF    03.5
+00C4:  BCF    06.0
+....................  
+....................  
+....................  
+....................  
+....................    if(input(PIN_E0)==1){            //nota sii              493.8hz 
+00C5:  BTFSS  09.0
+00C6:  GOTO   0D5
+....................    while(input(PIN_E0)==1); 
+00C7:  BTFSC  09.0
+00C8:  GOTO   0C7
+....................          setup_timer_2(T2_div_BY_16,126,1); 
+00C9:  MOVLW  00
+00CA:  MOVWF  78
+00CB:  IORLW  06
+00CC:  MOVWF  12
+00CD:  MOVLW  7E
+00CE:  BSF    03.5
+00CF:  MOVWF  12
+....................          enable_interrupts(INT_TIMER2); 
+00D0:  BSF    0C.1
+....................          enable_interrupts(GLOBAL); 
+00D1:  MOVLW  C0
+00D2:  BCF    03.5
+00D3:  IORWF  0B,F
+....................    }  
+00D4:  GOTO   0D9
+....................    else 
+....................       output_low(pin_b0); 
+00D5:  BSF    03.5
+00D6:  BCF    06.0
+00D7:  BCF    03.5
+00D8:  BCF    06.0
+00D9:  GOTO   04D
+.................... } 
+....................  
+....................  
+.................... } 
+....................  
+00DA:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F7A   HS NOWDT NOPUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

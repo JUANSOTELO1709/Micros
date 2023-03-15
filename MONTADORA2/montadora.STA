@@ -1,0 +1,101 @@
+
+ROM used:   2791/8192 (34%)
+            2927/8192 (36%) including unused fragments
+
+            0.7 Average locations per line
+            3.9 Average locations per statement
+
+RAM used:   64/368 (17%) at main() level
+            90/368 (24%) worst case
+
+Stack used: 5 worst case (5 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  358   193  27  montadora.c
+  672     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
+  311    81  11  ..\..\..\..\Program Files (x86)\PICC\Drivers\LCD_20X4.c
+ 2229   257  36  ..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
+  135    43   6  ..\..\..\..\Program Files (x86)\PICC\Drivers\kbd4x4.c
+  423   125  17  ..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
+   32     0   0  ..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
+   28     0   0  ..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
+   88    21   3  ..\..\..\..\Program Files (x86)\PICC\Drivers\max6675.c
+----- -----
+ 4276   720 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     21   1    1             @delay_ms1
+0      8   0    0             @const623
+0     47   2    1    326  2.8  lcd_send_nibble
+0     39   1    3    235  3.8  lcd_send_byte
+0     49   2    2    406  4.7  lcd_init
+0     37   1    4    386  6.5  lcd_gotoxy
+0     39   1    1    308  5.0  lcd_putc
+0      1   0    0             @const640
+0     86   3    4             @PSTRINGC7_637
+0     83   3    3    593  3.9  send_D7_D4
+0     18   1    3     98  2.8  send_byte_data
+0      6   0    1     35  1.4  CGRAM_putc
+0     14   1    2     55  2.3  CGRAM_position
+0     21   1    3    128  3.5  CGRAM_create_char
+ Inline         2             @ITOF
+ Inline        13             @MULFF
+ Inline        16             @ADDFF
+ Inline        14             @DIVFF
+0     20   1    0             @const798
+0      3   0    0      3  0.0  kbd_init
+0    103   4    3   6007 10.5  kbd_getc
+0      8   0    0             @goto11185
+0     78   3    9    336  7.1  strstr
+ Inline         0     54  1.2  init_TC
+ Inline         3    430  4.7  read_TC
+ Inline         2     48  2.1  sortout
+ Inline         6     59  2.0  toFloat_TC
+0    716  26    2     70  1.6  do_everything
+1    868  31    4   6688  8.9  MAIN
+0      5   0    0             @const940
+0     23   1    5             @READBITA
+0      3   0    0             @const944
+0      3   0    0             @const945
+ Inline         5             @FTOSD
+0     79   3   13             @DIV3232
+0    341  12   13             @PRINTF_L32D_637FPFPF
+0      5   0    0             @const955
+0      3   0    0             @const956
+0      3   0    0             @const957
+0      3   0    0             @const958
+0     11   0    0             @const959
+0      5   0    0             @const960
+0      5   0    0             @const961
+0      3   0    0             @const962
+0      6   0    0             @const963
+0      8   0    0             @const964
+0      5   0    0             @const965
+1     11   0    0             @goto11832
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               19
+    Statements              720
+    Comments                669
+    Volume (V)              22503
+    Difficulty (D)          76.9
+    Effort to implement (E) 1730863
+    Time to implement (T)   26 hours, 43 minutes
+    Est Delivered Bugs (B)  5
+    Cyclomatic Complexity   64
+    Maintainability (MI)    86
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1908  136  
+00800-00FFF   879  1169  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

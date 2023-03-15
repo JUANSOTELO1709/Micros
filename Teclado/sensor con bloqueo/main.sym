@@ -1,0 +1,138 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+006     kbd
+008     lcdlat
+008     PSP_DATA
+008     lcd
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020-021 strtok.save
+022     kbd_getc.kbd_call_count
+023.0   kbd_getc.kbd_down
+024     kbd_getc.last_key
+025     kbd_getc.col
+026     k
+027     num
+028-02C clave_entrada
+02D-030 clave
+031     @TRIS_C
+032-035 atan2.y
+032     MAIN.a
+032     kbd_getc.kchar
+033     MAIN.temp
+033     kbd_getc.row
+034     lcd_init.i
+034     @PRINTF_U_647.P1
+034-037 @MULFF.P2
+034-035 @ITOF.P3
+034     @PSTRINGCN7_647.P4
+034-037 @SFTOI.P5
+034     MAIN.@SCRATCH1
+035     @PRINTF_U_647.P1
+035-038 lcd_init.LCD_INIT_STRING
+035     @PSTRINGCN7_647.@SCRATCH1
+036-039 atan2.x
+036     @DIV88.P1
+036     @PSTRINGCN7_647.@SCRATCH2
+037     @DIV88.P1
+037     @PSTRINGCN7_647.@SCRATCH3
+038     lcd_putc.c
+038-03B @MULFF.P1
+038     @PSTRINGCN7_647.@SCRATCH4
+038     @DIV88.@SCRATCH1
+039     lcd_gotoxy.x
+039     @delay_ms1.P1
+039     lcd_init.@SCRATCH1
+03A-03D atan2.z
+03A     lcd_gotoxy.y
+03B     lcd_gotoxy.address
+03C     lcd_gotoxy.@SCRATCH1
+03C     @MULFF.@SCRATCH1
+03D     lcd_send_byte.address
+03D     @MULFF.@SCRATCH2
+03E.0   atan2.sign
+03E     lcd_send_byte.n
+03E     @MULFF.@SCRATCH3
+03F     atan2.quad
+03F     lcd_read_byte.low
+03F     lcd_send_byte.@SCRATCH1
+03F     @MULFF.@SCRATCH4
+040     lcd_read_byte.high
+040     lcd_send_nibble.n
+040     @MULFF.@SCRATCH5
+041     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const920.call
+00000D  @delay_ms1
+000021  lcd_send_nibble
+000032  lcd_read_nibble
+000038  lcd_send_byte
+00003E  lcd_read_byte
+00007A  lcd_init
+0000B8  kbd_init
+0000BB  @ITOF
+0000DA  @MULFF
+000151  @SFTOI
+000172  lcd_gotoxy
+000184  lcd_putc
+0001B0  @PSTRINGCN7_647
+000209  @DIV88
+00021E  @PRINTF_U_647
+000255  MAIN
+000255  @cinit1
+000262  @cinit2
+
+Project Directory:
+    C:\Users\juand\Desktop\micros\Teclado\sensor con bloqueo\
+
+Project Files:
+    main.c                                                  [19-oct.-22 20:41  CRC=59DA0127]
+    main.h                                                  [18-oct.-22 18:26  CRC=CF12E969]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [18-abr.-14 16:56  CRC=4F277C97]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\LCD.c [24-sept.-22 11:52  CRC=D1A6378A]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [10-abr.-14 09:04  CRC=662B2714]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-jul.-10 09:27  CRC=897CEC6C]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-ene.-08 13:55  CRC=2D1F019F]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd4x4.c [13-oct.-22 19:40  CRC=ADACD6A8]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sept.-12 11:35  CRC=546412C9]
+
+Source signature=BCF6B00A
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

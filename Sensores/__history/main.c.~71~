@@ -1,0 +1,67 @@
+#include <main.h>
+
+#fuses nowdt,noprotect,nolvp,nodebug,xt
+#include <lcd.c>
+#include <math.h>
+#use standard_io(B)
+void secuencia1();
+void secuencia2();
+
+
+
+void main()
+
+{
+setup_adc(adc_clock_internal);
+setup_adc_ports(all_analog);
+SET_TRIS_D(0xFF);
+SET_TRIS_B(0xFF);
+
+int8 a;
+int8 temp;
+lcd_init();
+
+
+int8 pwm= (temp*625)/1024;
+
+//625/1024
+   while(TRUE)
+   {
+ 
+
+
+      if(input(PIN_B5)==1){         //Sensor Temperatura
+   while(input(PIN_B5)==1);
+         set_adc_channel(0);
+         delay_us(20);
+          a=read_adc();
+         temp=a*0.4882;
+         lcd_putc('\f');
+         lcd_gotoxy(1,1);
+       printf(lcd_putc,"LA TEMPERATURA");
+         lcd_gotoxy(2,1);
+         printf(lcd_putc,"La temp \nes: %u C",temp);
+         delay_us(20);
+         switch(temp){
+              case 25:      secuencia1();  //normal
+              case 29:       delay_us(20);
+                             set_pwm1_duty(pwm);; // alarma
+            
+      } 
+      
+      output_low(pin_b0);
+     
+  } 
+
+ } 
+
+
+ } 
+
+void secuencia1(){
+      output_low(pin_b0);
+}
+
+
+
+

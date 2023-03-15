@@ -1,0 +1,80 @@
+#include <piano.h>
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, BROWNOUT
+#use delay(clock=20M)
+
+
+#use standard_io(B)
+#use fast_io(D)
+
+
+
+
+
+#INT_TIMER2
+void timer2_interrupcion(){
+      output_toggle(PIN_b0);
+
+}
+
+
+
+void main()
+{
+   while(TRUE)
+   {
+  
+   }
+
+}
+
+
+
+void notad(){
+
+ if(input(PIN_D0)==1){
+   while(input(PIN_D0)==1);
+         delay_ms(200);
+         setup_timer_2(T2_div_BY_16,155,1);
+         enable_interrupts(INT_TIMER2);
+         enable_interrupts(GLOBAL);
+         OUTPUT_LOW(PIN_B0);
+}
+}
+
+
+void re(){
+
+
+}
+
+
+void mi(){
+
+
+}
+
+
+void fa(){
+
+
+}
+
+
+void sol(){
+
+
+}
+
+
+void la(){
+
+
+}
+
+
+void si(){
+
+
+}
+
+

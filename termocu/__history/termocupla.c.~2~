@@ -1,0 +1,19 @@
+#include <16f877a.h>
+#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT
+#use delay(clock=4M)
+#use standard_io(D)
+
+#define LCD_DB4  PIN_D4                     // Pines de la pantalla LCD 2004
+#define LCD_DB5  PIN_D5
+#define LCD_DB6  PIN_D6
+#define LCD_DB7  PIN_D7
+#define LCD_RS   PIN_D2
+#define LCD_E    PIN_D3
+
+#use rs232(baud=9600, xmit=pin_c6, rcv=pin_c7, bits=8)
+
+#include <LCD_20X4.c>                       // Libreria para el manejo de la LCD 20x4
+#include <math.h>                            // libreria mate
+#include <kbd4x4.c>           // libreria teclado
+#include <string.h>        //libreria comparaciones
+#include <max6675.c>             //libreria termocupla

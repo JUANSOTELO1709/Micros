@@ -1,0 +1,7 @@
+>>> Warning 202 "main.c" Line 10(6,7): Variable never used:   k
+>>> Warning 202 "main.c" Line 11(5,8): Variable never used:   num
+>>> Warning 202 "main.c" Line 12(6,19): Variable never used:   clave_entrada
+>>> Warning 202 "main.c" Line 13(6,11): Variable never used:   clave
+      Memory usage:   ROM=9%      RAM=7% - 12%
+      0 Errors,  4 Warnings.
+Build Successful.

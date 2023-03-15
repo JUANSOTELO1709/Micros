@@ -1,0 +1,33 @@
+#include <16f877a.h>
+#USE DELAY(CLOCK=4000000)
+#FUSES XT,NOPROTECT,NOWDT,NOBROWNOUT,NOPUT,NOLVP
+#use rs232(baud=9600, xmit=pin_c6, rcv=pin_c7, bits=8)
+#use standard_io(c)
+
+
+
+   #define TC_CLK     PIN_C3            //edit these pins as necessary 
+   #define TC_CS      PIN_C0 
+   #define TC_DATA    PIN_C4 
+
+
+
+#include <lcd.c>                       // Libreria para el manejo de la LCD 20x4                         // libreria mate
+#include <max6675.c>             //libreria termocupla
+
+
+void main()
+{ 
+   lcd_init();
+   char msg[32]; 
+   delay_ms(50);      //allow oscillator to stabilise 
+
+   while(TRUE){ 
+      delay_ms(1000); 
+      //sprintf(msg,"%3.2f%cC\r\n",do_everything(),0xB0); 
+      sprintf(msg,"%01.2f%cC\r\n",do_everything(),0xB0);
+      lcd_gotoxy(1,1);
+      printf(lcd_putc(msg,"%01.2f%cC\r\n"), do_everything(),0xB0));
+      printf("%s",msg); 
+   } 
+}

@@ -1,0 +1,87 @@
+[PROJECT]
+Target=piano.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=piano.c
+[Directories]
+Include=
+[C:\Users\juand\Desktop\micros\Piano\piano]
+Type=4
+[mru-list]
+1=piano.c
+
+[ProjectLog]
+Days=6
+D1=02-10-2022
+D1_L=12
+D1_L1=[81740]Stopped Editing.
+TotalEdit=78
+TotalDebug=0
+D1_E=3
+D1_D=0
+D1_L2=[81740]Project Closed.
+D1_L3=[81740]Project Opened.
+D1_L4=[81768]Started Editing.
+D1_L5=[82110]Stopped Editing.
+D1_L6=[84234]Project Closed.
+D1_L7=[84529]Project Opened.
+D1_L8=[84852]Started Editing.
+D1_L9=[85239]Stopped Editing.
+D1_L10=[85437]Started Editing.
+D1_L11=[85809]Stopped Editing.
+D1_L12=[85891]Started Editing.
+D2=03-10-2022
+D2_L=6
+D2_L1=[52]Stopped Editing.
+D2_L2=[311]Started Editing.
+D2_L3=[1940]Stopped Editing.
+D2_L4=[2269]Started Editing.
+D2_L5=[2661]Stopped Editing.
+D2_E=31
+D2_D=0
+D2_L6=[80629]Project Closed.
+D3=04-10-2022
+D3_L=11
+D3_L1=[70808]Project Opened.
+D3_L2=[71910]Started Editing.
+D3_L3=[72211]Stopped Editing.
+D3_L4=[74851]Project Opened.
+D3_L5=[74862]Started Editing.
+D3_L6=[75250]Stopped Editing.
+D3_L7=[75727]Started Editing.
+D3_L8=[76070]Stopped Editing.
+D3_L9=[76095]Started Editing.
+D3_L10=[76472]Stopped Editing.
+D3_E=9
+D3_D=0
+D3_L11=[76472]Project Closed.
+D4=06-10-2022
+D4_L=7
+D4_L1=[72334]Project Opened.
+D4_L2=[72411]Started Editing.
+D4_L3=[74714]Stopped Editing.
+D4_L4=[74877]Started Editing.
+D4_L5=[75248]Stopped Editing.
+D4_L6=[75993]Started Editing.
+D4_L7=[76318]Stopped Editing.
+D5=07-10-2022
+D5_E=35
+D5_D=0
+D5_L=1
+D5_L1=[1785]Project Closed.
+D6=10-10-2022
+D6_L=2
+D6_L1=[82062]Project Opened.
+D6_L2=[82781]Project Closed.
+
+[Opened Files]
+1=piano.c
+2=
+[piano.c]
+Type=4
+[Units]
+Count=1
+1=piano (main)

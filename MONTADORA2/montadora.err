@@ -1,0 +1,4 @@
+>>> Warning 202 "montadora.c" Line 44(5,9): Variable never used:   cont
+      Memory usage:   ROM=34%      RAM=17% - 24%
+      0 Errors,  1 Warnings.
+Build Successful.

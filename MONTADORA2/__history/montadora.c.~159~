@@ -1,0 +1,543 @@
+
+
+#include <16f877a.h>
+
+
+
+#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT
+#use delay(clock=4M)
+#use standard_io(D)
+#use standard_io(C)
+#use fast_io(A)
+
+
+
+
+   #define TC_CLK     PIN_C3            //edit these pins as necessary 
+   #define TC_CS      PIN_C0 
+   #define TC_DATA    PIN_C4 
+
+
+#define LCD_DB4  PIN_D4                     // Pines de la pantalla LCD 2004
+#define LCD_DB5  PIN_D5
+#define LCD_DB6  PIN_D6
+#define LCD_DB7  PIN_D7
+#define LCD_RS   PIN_D2
+#define LCD_E    PIN_D3
+
+
+#include <LCD_20X4.c>                       // Libreria para el manejo de la LCD 20x4
+#include <math.h>                            // libreria mate
+#include <kbd4x4.c>           // libreria teclado
+#include <string.h>        //libreria comparaciones
+#include <max6675.c>             //libreria termocupla
+
+
+char cara[8] = {0x00,0x0A,0x0A,0x0A,0x00,0x11,0x0E,0x00};
+char grado[8] = {0x07,0x05,0x07,0x00,0x00,0x00,0x00,0x00};
+char bota [8] =  {0b00000001, 0b00000011, 0b00000111, 0b00000111, 0b00000111,0b0000111,0b00001101,0b00011101};
+char k;
+int num=0;
+
+                  //motor
+int pos=0;
+int sensor1=0;
+int sensor2=0;
+int sensor3=0;
+int sensor4=0;
+
+
+
+char clave [1];
+char clave_a[] = "A";   // para ingresar a opcion a
+char clave_b[] = "B";   // para ingresar b
+char clave_c[] = "C";   // para ingresar c
+char clave_d[] = "D";   // para ingresar d
+char clave_entrada[] = "#";   // para ingresar al menu
+char claveps [1];
+
+
+
+char temperatura_entrada[] ="1";  //entrada a temperatura
+char top[1];
+
+char posicion_entrada[] ="2";       // entrada a posicion
+char toc[2];
+
+int menu=0;
+
+int dato_temperatura=0;
+
+
+void termocupla();
+void botones();
+
+void main()
+{
+
+
+
+      lcd_init();       //inicia lcd
+      kbd_init();       //inicia tecaldo
+      port_b_pullups(true);      //oficializa pullups
+
+setup_timer_2(t2_div_by_16,155,1);        //estabiliza timer 2
+setup_ccp1(ccp_pwm);                      // configura pwm
+
+
+//setup_adc(adc_clock_internal);            //inicia salidas de A en adc
+//setup_adc_ports(all_analog);              // establecer todo puerto A en enalogo
+SET_TRIS_D(0xFF);          //D como salidas  
+SET_TRIS_B(0xFF);           //B como salidas          
+SET_TRIS_C(0xFF);          //C como salidas 
+SET_TRIS_A(0x00);          //C como Entradas 
+
+
+
+
+ CGRAM_position(0);
+ CGRAM_create_char(cara);
+
+ CGRAM_position(1);
+ CGRAM_create_char(grado);
+
+ CGRAM_position(2);
+ CGRAM_create_char(bota);
+
+
+
+   while(true)
+   {
+     num=0;
+
+      switch (menu) {            //generar menu con #
+
+    case 0:  
+              //menu caso 1 (Temperatura)
+      lcd_putc('\f');
+      lcd_gotoxy(6,2);
+      CGRAM_putc(2);
+      lcd_putc("buen dia ");
+      CGRAM_putc(0);
+      delay_ms(200);  
+      menu++;
+           break;
+
+    case 1:          //menu caso 2 (Medicion)
+while (menu==1){
+
+
+
+         lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("cont");
+
+         lcd_gotoxy(1,2);
+         lcd_putc("Temp:");
+
+         lcd_gotoxy(8,2);
+//      delay_ms(100);  
+      printf(lcd_putc,"%01.2f%cC\r\n", do_everything(),0xB0);
+ //     lcd_putc('\f');
+ //     delay_ms(100);
+
+
+    CGRAM_putc(1);
+         lcd_gotoxy(1,3);
+         lcd_putc("Posicion:");
+
+
+if(sensor1==1){
+    lcd_gotoxy(11,3);
+         lcd_putc("A");
+
+
+}
+if(sensor2==1){
+    lcd_gotoxy(11,3);
+         lcd_putc("B");
+}
+if(sensor3==1){
+    lcd_gotoxy(11,3);
+         lcd_putc("C");
+}
+if(sensor4==1){
+    lcd_gotoxy(11,3);
+         lcd_putc("D");
+}
+         lcd_gotoxy(1,4);
+         lcd_putc("Presione # para menu�");
+
+     
+ 
+delay_ms(100);
+
+
+
+while(num<1){
+   k=kbd_getc();
+   if(k != 0){
+           
+          clave[num]=k;
+          num++;
+         lcd_gotoxy(10,1);
+         lcd_putc(k);
+
+}
+}
+
+
+delay_ms(100);
+if(strstr(clave , clave_entrada)){
+      menu++;
+delay_ms(100);
+   }
+else {
+menu=1;
+}
+
+}
+ break;
+
+
+
+
+
+case 2:                    //menu 2 parte de seleccion de temperatura o posicion
+         
+
+         lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("Seleccione que desea");
+   
+         lcd_gotoxy(1,2);
+         lcd_putc("configurar");
+
+         
+   
+   lcd_gotoxy(1,3);
+   lcd_putc("1.");
+         lcd_gotoxy(4,3);
+         lcd_putc("Temparatura");
+
+       
+   lcd_gotoxy(1,4);
+   lcd_putc("2.");
+         lcd_gotoxy(4,4);
+         lcd_putc("Posicion");
+
+while(num<1){
+   k=kbd_getc();
+   if(k != 0){
+           
+          top[num]=k;
+          toc[num]=k;
+          num++;
+         lcd_gotoxy(10,1);
+         lcd_putc(k);
+}
+}
+
+if(strstr(top , temperatura_entrada)){
+      menu=3;
+delay_ms(100);
+   }
+
+if(strstr(toc, posicion_entrada)){
+menu=4;
+delay_ms(100);
+
+}
+
+delay_ms(100);
+break;
+
+
+
+
+case 3:
+
+
+      lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("INGRESE GRADOS");
+          CGRAM_putc(1);
+         lcd_gotoxy(1,2);
+         lcd_putc("3 digitos");
+
+
+
+while(num<3){
+   k=kbd_getc();
+   if(k != 0){
+           
+          clave[num]=k;
+          num++;
+         lcd_gotoxy(num+1,4);
+         lcd_putc(k);
+dato_temperatura=k;
+}
+
+if(dato_temperatura!=0){
+menu=1;
+}
+
+}
+
+   delay_ms(100);
+
+
+
+break;
+
+ case 4:    
+         lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("1/2 = A");
+         lcd_gotoxy(1,2);
+         lcd_putc("3/2 = B");
+         lcd_gotoxy(1,3);
+         lcd_putc("5/2 = C");
+         lcd_gotoxy(1,4);
+         lcd_putc("7/3 = D");
+delay_ms(100);
+
+
+while(num<1){
+   k=kbd_getc();
+   if(k != 0){
+           
+          claveps[num]=k;
+          num++;
+         lcd_gotoxy(10,1);
+         lcd_putc(k);
+}
+}
+
+
+
+
+if(strstr(claveps , clave_a)){             //posicion 0 , A
+     menu=5;
+delay_ms(200);
+}
+
+
+
+
+if(strstr(claveps, clave_b)){               //posicion 2/3          B
+menu=6;
+delay_ms(200);
+}
+
+
+
+
+if(strstr(claveps, clave_c)){               
+menu=7;
+delay_ms(200);
+}
+
+
+
+if(strstr(claveps, clave_d)){
+menu=8;
+delay_ms(200);
+}
+break;
+
+
+      case 5: 
+      sensor1=0;
+      sensor2=0;
+      sensor3=0;
+      sensor4=0;     
+                                                                                                                                        //posicion 0
+if (pos!=1){
+      output_low(pin_c6);     
+      output_high(pin_c5);          //empieza a bajar el motor si la posicion es distinta a 0, siempre baja
+}
+
+      lcd_putc('\f');
+      lcd_gotoxy(7,1);
+      lcd_putc("posicion 1");
+      delay_ms(200);
+
+if(input(PIN_A0)==0){         //si llega a accionarse el sensor A0 el motor se detiene
+   while(input(PIN_A0)==0);{
+      sensor1=1;           //se suma sensor 1, aclarando que esta en la posicion 1
+      pos=1;
+
+
+
+      if(sensor1==1){
+      output_low(pin_c5);
+      output_low(pin_c6);   
+      delay_ms(200);
+      }      //se detiene el motor
+      
+if(sensor1!=0){
+menu=1;
+      delay_ms(200);
+}
+
+
+}
+  }
+
+   break;
+
+
+
+      case 6:    
+      sensor1=0;
+      sensor2=0;
+      sensor3=0;
+      sensor4=0;                                                                                                                                   //posicion 1
+if(pos<2){
+      output_low(pin_c6);     
+      output_high(pin_c5);          //empieza a bajar el motor si la posicion es distinta a 0, siempre baja
+ }   
+if(pos>2){
+      output_low(pin_c5);     
+      output_high(pin_c6);          //empieza a bajar el motor si la posicion es distinta a 0, siempre baja
+}
+
+
+
+
+if(input(PIN_A1)==1){         //si llega a accionarse el sensor A0 el motor se detiene
+   while(input(PIN_A1)==1){
+      sensor2=1;           //se suma sensor 1, aclarando que esta en la posicion 1
+      pos=2;
+  }
+}
+if(sensor2==1){
+      output_low(pin_c5);
+      output_low(pin_c6);           //se detiene el motor
+      }
+if(sensor2==1){
+      menu=1;
+      delay_ms(200);
+}
+
+
+   break;
+
+      case 7:
+      sensor1=0;
+      sensor2=0;
+      sensor3=0;
+      sensor4=0;
+if(pos<3){     
+output_high(pin_c6);          //empieza a bajar el motor si la posicion es distinta a 0, siempre baja
+output_low(pin_c5);    
+}  
+else if(pos>3){
+output_high(pin_c5);          //empieza a bajar el motor si la posicion es distinta a 0, siempre baja
+output_low(pin_c6);  
+}
+
+      lcd_putc('\f');
+      lcd_gotoxy(7,1);
+      lcd_putc("posi 3");
+  
+  
+  
+                                                                                                                                              //posicion 2
+if(input(PIN_A2==1)){         //si llega a accionarse el sensor A2 el motor se detiene
+   while(input(PIN_A2)==1){
+      sensor3=1; 
+      pos=3;   
+      }
+}  
+
+
+
+
+if (sensor3==1){
+      output_low(pin_c5);
+      output_low(pin_c6);
+        }
+
+
+if(sensor3==1){
+      menu=1;
+      delay_ms(200);
+}    
+ 
+
+   break;      
+
+
+
+
+
+
+
+
+case 8:  
+      sensor1=0;
+      sensor2=0;
+      sensor3=0;
+      sensor4=0;
+
+if (pos<4){
+      output_low(pin_c5);     
+      output_high(pin_c6);          //empieza a bajar el motor si la posicion es distinta a 0, siempre baja
+}
+
+
+
+      lcd_putc('\f');
+      lcd_gotoxy(7,1);
+      lcd_putc("posicion 4");
+      
+                                                                                                                                                //posicion 3
+if(input(PIN_A3==0)){         //si llega a accionarse el sensor A3 el motor se detiene
+   while(input(PIN_A3)==0){
+sensor4=1;
+pos=4;
+
+ }}
+
+
+if(sensor4==1){
+      output_low(pin_c5);
+      output_low(pin_c6);
+ }
+
+ if (sensor4==1){
+      menu=1;
+      delay_ms(200);
+ }
+
+
+   break;
+                  
+
+            }
+
+      }
+}
+
+
+
+void termocupla(){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

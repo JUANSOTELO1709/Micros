@@ -1,0 +1,51 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\juand\Desktop\micros\Teclado\sensor con bloqueo\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=2
+D1=18-10-2022
+D1_L=4
+D1_L1=[66407]Project Opened.
+D1_L2=[66409]Started Editing.
+D1_L3=[66952]Stopped Editing.
+TotalEdit=36
+TotalDebug=0
+D1_E=5
+D1_D=0
+D1_L4=[85307]Project Closed.
+D2=19-10-2022
+D2_L=10
+D2_L1=[67956]Project Opened.
+D2_L2=[68265]Started Editing.
+D2_L3=[68565]Stopped Editing.
+D2_L4=[68708]Started Editing.
+D2_L5=[69323]Stopped Editing.
+D2_L6=[72314]Started Editing.
+D2_L7=[72853]Stopped Editing.
+D2_L8=[72880]Started Editing.
+D2_L9=[74437]Stopped Editing.
+D2_E=31
+D2_D=0
+D2_L10=[74731]Project Closed.
+
+[Opened Files]
+1=main.c
+2=..\..\Sensores\main.c
+3=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

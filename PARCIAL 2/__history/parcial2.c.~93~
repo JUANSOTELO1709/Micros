@@ -1,0 +1,148 @@
+#include <16f877a.h>
+#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT
+#use delay(clock=4M)
+#use standard_io(D)
+
+
+#include <lcd.c>                       // Libreria para el manejo de la LCD 20x4
+#include <math.h>                            // libreria mate
+#include <kbd4x4.c>           // libreria teclado
+#include <string.h>        //libreria comparaciones
+
+
+char k;
+int num=0;
+
+
+char clave_subida[] = "1";   // para aumentar al menu
+char subida [1];
+
+char clave_bajada[] = "2";    // para disminuir al menu
+char bajada [2];
+
+int menu=0;
+
+
+void main()
+{
+      lcd_init();       //inicia lcd
+      kbd_init();       //inicia tecaldo
+      port_b_pullups(true);      //oficializa pullups
+
+setup_timer_2(t2_div_by_16,155,1);        //estabiliza timer 2
+setup_ccp1(ccp_pwm);                      // configura pwm
+
+
+setup_adc(adc_clock_internal);            //inicia salidas de A en adc
+setup_adc_ports(all_analog);              // establecer todo puerto A en enalogo
+SET_TRIS_D(0xFF);          //D como salidas  
+SET_TRIS_B(0xFF);           //B como salidas          
+SET_TRIS_C(0xFF);          //C como salidas 
+
+
+
+
+
+
+
+   while(true)
+   {
+     num=0;       //numero de keyboard
+
+      switch (menu) {            //generar menu
+
+    case 0:  
+lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("late");
+            lcd_gotoxy(10,1);
+         lcd_putc("**");
+
+
+         lcd_gotoxy(1,2);
+         lcd_putc("capuchino");
+
+while(num<1){
+   k=kbd_getc();
+   if(k != 0){
+           
+          subida[num]=k;
+          num++;
+         lcd_gotoxy(10,1);
+         lcd_putc(k);
+
+}
+}
+
+delay_ms(100);
+
+if(strstr(subida , clave_subida)){
+      menu++;
+delay_ms(100);
+   }
+else {
+menu=1;
+}
+           break;
+
+    case 1:          //menu caso 1 (seleccion)
+
+
+           lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("late");
+
+
+
+         lcd_gotoxy(1,2);
+         lcd_putc("capuchino");
+            lcd_gotoxy(10,1);
+         lcd_putc("**");
+
+
+while(num<1){
+   k=kbd_getc();
+   if(k != 0){
+           
+          subida[num]=k;
+          num++;
+         lcd_gotoxy(10,1);
+         lcd_putc(k);
+
+}
+}
+
+delay_ms(100);
+
+if(strstr(subida , clave_subida)){
+      menu++;
+delay_ms(100);
+   }
+else {
+menu=1;
+}
+
+
+
+ break;
+
+
+
+
+
+case 2:                    //menu 2 parte de seleccion de temperatura o posicion
+          
+           lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("expreso");
+            delay_ms(200);
+
+break;
+
+
+
+
+}
+}
+}
+

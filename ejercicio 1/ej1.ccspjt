@@ -1,0 +1,37 @@
+[PROJECT]
+Target=ej1.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.025
+Compiler=PCM
+[Target Data]
+FileList=ej1.c
+[ej1.c]
+Type=4
+[mru-list]
+1=ej1.c
+
+[Opened Files]
+1=..\MONTADORA2\montadora.c
+2=ej1.c
+3=..\serial\uno.c
+4=
+
+[ProjectLog]
+Days=2
+D1=09-11-2022
+D1_L=1
+D1_L1=[84602]Started Editing.
+D2=10-11-2022
+D2_L=5
+D2_L1=[1328]Stopped Editing.
+TotalEdit=48
+TotalDebug=0
+D2_E=48
+D2_D=0
+D2_L2=[3601]Project Closed.
+D2_L3=[70237]Project Opened.
+D2_L4=[70257]Started Editing.
+D2_L5=[70306]Project Closed.
+[Units]
+Count=1
+1=ej1 (main)

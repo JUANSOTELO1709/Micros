@@ -1,0 +1,16 @@
+#include <main.h>
+#fuses HS, NOWDT, NOPROTECT, NOPUT, NOLVP, BROWNOUT
+#use delay(clock=20M)
+#use fast_io(B)
+#use standard_io(C)
+#use fast_io(D)
+//uso de timer
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

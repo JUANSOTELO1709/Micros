@@ -1,0 +1,54 @@
+#include <main.h>
+#use standard_io(D)
+#use standard_io(B)
+#use fast_io(E)
+
+#include <LCD.c>
+
+#include <kbd4x4.c>
+
+char k;
+
+
+int num=0;
+char clave_entrada[] = "1234";
+char clave [];
+
+
+void main()
+{
+   lcd_init();
+   kbd_init();
+   port_b_pullups(true);
+
+   output_low(pin_E0);  //pin e0 alarma accede
+   output_low(pin_E1);     //pin e1 alarma denega
+
+
+      
+
+   while(TRUE)
+   {
+      lcd_gotoxy(1,1);
+      lcd_putc("Ingresar clave");
+num = 0;
+      
+while(num<4){
+         k=kbd_getc();
+         if(k != 0){
+           
+          clave[num]=k;
+           num++;
+          lcd_gotoxy(num+1,2);
+          lcd_putc(k);
+               
+            }
+         }
+      delay_ms(150);
+if(strstr(clave , clave_entrada)){}
+
+
+
+      
+}
+}

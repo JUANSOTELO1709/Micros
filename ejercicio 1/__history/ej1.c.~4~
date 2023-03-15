@@ -1,0 +1,31 @@
+#include <16f877a.h>       // incluir libreria de el pic utilizado
+
+
+#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT        // fusibles estandares
+
+
+void led();                                  //prototipos
+
+
+
+void main(){                        //funcion que lee todo codigo para generar en el pic
+
+
+
+
+while(true){
+led();
+
+}
+
+
+
+}
+
+
+
+void led(){                                        //genera instrucciones de funcion
+
+
+}
+

@@ -1,0 +1,18 @@
+#include <16f877a.h>
+#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT
+#use delay(clock=4M)
+#use standard_io(c)
+
+   #define TC_CLK     PIN_C3            //edit these pins as necessary 
+ 
+   #define TC_CS      PIN_C0 
+
+   #define TC_DATA    PIN_C4 
+
+
+#use rs232(baud=9600, xmit=pin_c6, rcv=pin_c7, bits=8)
+
+#include <lcd.c>                       // Libreria para el manejo de la LCD 20x4
+#include <math.h>                            // libreria mate
+
+#include <max6675.c>             //libreria termocupla

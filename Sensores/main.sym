@@ -1,0 +1,200 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+006     kbd
+008     PSP_DATA
+008     lcdlat
+008     lcd
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-021 strtok.save
+022     kbd_getc.kbd_call_count
+023.0   kbd_getc.kbd_down
+024     kbd_getc.last_key
+025     kbd_getc.col
+026     k
+027     num
+028-02C clave_entrada
+02D-030 clave
+031     @TRIS_C
+032     MAIN.a
+032-035 atan2.y
+033     MAIN.temp
+034-037 MAIN.valor_a
+036-039 atan2.x
+038-03B MAIN.pot
+03A-03D atan2.z
+03C     MAIN.pwm
+03D     kbd_getc.kchar
+03D-03E @ITOF.P1
+03D-040 @PRINTF_L32D_647FPFPF.P2
+03D     @PSTRINGCN7_647.P3
+03D-040 @SFTOI.P4
+03D-03E strstr.s1
+03D-03E @MUL1616.P1
+03D     @PRINTF_U_647.P2
+03D     lcd_init.i
+03D-040 @FLT.P1
+03D     MAIN.@SCRATCH1
+03D     @PSTRINGC7_647.@SCRATCH1
+03E-041 lcd_init.LCD_INIT_STRING
+03E     @PRINTF_U_647.P1
+03E.0   atan2.sign
+03E     kbd_getc.row
+03E     MAIN.@SCRATCH2
+03E     @PSTRINGCN7_647.@SCRATCH1
+03E     @PSTRINGC7_647.@SCRATCH2
+03F-040 @MUL1616.P1
+03F     atan2.quad
+03F     @DIV88.P1
+03F-040 strstr.s2
+03F     kbd_getc.@SCRATCH1
+03F     @PSTRINGCN7_647.@SCRATCH2
+03F     @PSTRINGC7_647.@SCRATCH3
+040     @DIV88.P1
+040     @PSTRINGCN7_647.@SCRATCH3
+040     @PSTRINGC7_647.@SCRATCH4
+041     @PRINTF_L32D_647FPFPF.P1
+041-044 @FLT.P2
+041-042 strstr.s
+041     @MUL1616.@SCRATCH1
+041     @PSTRINGCN7_647.@SCRATCH4
+041     @DIV88.@SCRATCH1
+042     lcd_init.@SCRATCH1
+042     @PRINTF_L32D_647FPFPF.@SCRATCH1
+043-044 strstr.t
+043     @PRINTF_L32D_647FPFPF.@SCRATCH2
+044     @PRINTF_L32D_647FPFPF.@SCRATCH3
+045     @FLT.@SCRATCH1
+045     strstr.@SCRATCH1
+045     @PRINTF_L32D_647FPFPF.@SCRATCH4
+046     @FLT.@SCRATCH2
+046     @PRINTF_L32D_647FPFPF.@SCRATCH5
+047     @PRINTF_L32D_647FPFPF.@SCRATCH6
+048     @PRINTF_L32D_647FPFPF.@SCRATCH7
+049     @PRINTF_L32D_647FPFPF.@SCRATCH8
+04A-04D @MULFF.P1
+04A-04D @FTOSD.P2
+04A     lcd_putc.c
+04A-04D @DIV3232.P1
+04B     @delay_ms1.P1
+04B     lcd_gotoxy.x
+04C     lcd_gotoxy.y
+04D     lcd_gotoxy.address
+04E-051 @MULFF.P1
+04E-051 @DIV3232.P2
+04E     lcd_gotoxy.@SCRATCH1
+04E     @FTOSD.@SCRATCH1
+04F     lcd_send_byte.address
+050     lcd_send_byte.n
+051     lcd_read_byte.low
+051     lcd_send_byte.@SCRATCH1
+052     lcd_send_nibble.n
+052     lcd_read_byte.high
+052     @MULFF.@SCRATCH1
+052     @DIV3232.@SCRATCH1
+053     lcd_read_byte.@SCRATCH1
+053     @MULFF.@SCRATCH2
+053     @DIV3232.@SCRATCH2
+054     @MULFF.@SCRATCH3
+054     @DIV3232.@SCRATCH3
+055     @MULFF.@SCRATCH4
+055     @DIV3232.@SCRATCH4
+056     @MULFF.@SCRATCH5
+056     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  KEYS.call
+000008  KEYS.data
+000018  @const926.call
+000021  @const935.call
+000029  @const937.call
+000031  @const938.call
+000037  @const939.call
+000040  @const940.call
+000048  @const941.call
+000052  @const950.call
+00005A  @const951.call
+000062  @const952.call
+000068  @const953.call
+00006E  @const954.call
+000076  @delay_ms1
+00008A  lcd_send_nibble
+00009B  lcd_read_nibble
+0000A1  lcd_send_byte
+0000A7  lcd_read_byte
+0000E3  lcd_init
+000121  kbd_init
+000124  @MUL1616
+00013B  @ITOF
+000158  @MULFF
+0001CD  @SFTOI
+0001EE  lcd_gotoxy
+000200  lcd_putc
+00022C  @PSTRINGCN7_647
+000283  @DIV88
+000298  @PRINTF_U_647
+0002CD  @PSTRINGC7_647
+000323  kbd_getc
+00038A  @goto11508
+000392  strstr
+0003E0  @DIV3232
+00042F  @PRINTF_L32D_647FPFPF
+000456  @FTOSD
+00050F  @FLT
+000550  MAIN
+000800  @cinit1
+00080D  @cinit2
+
+Project Directory:
+    C:\Users\juand\Desktop\micros\Sensores\
+
+Project Files:
+    main.c                                                  [20-oct.-22 20:22  CRC=1EB82BCC]
+    main.h                                                  [11-oct.-22 23:57  CRC=2EB8624F]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [18-abr.-14 16:56  CRC=4F277C97]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [24-sept.-22 11:52  CRC=D1A6378A]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h  [28-sept.-12 11:35  CRC=546412C9]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [10-abr.-14 09:04  CRC=662B2714]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-jul.-10 09:27  CRC=897CEC6C]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-ene.-08 13:55  CRC=2D1F019F]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd4x4.c [13-oct.-22 19:40  CRC=ADACD6A8]
+
+Source signature=3AC31774
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

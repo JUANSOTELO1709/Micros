@@ -1,0 +1,96 @@
+[PROJECT]
+Target=parcial2.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.025
+Compiler=PCM
+[Target Data]
+FileList=parcial2.c
+[parcial2.c]
+Type=4
+[mru-list]
+1=parcial2.c
+
+[Opened Files]
+1=..\motor\motor.c
+2=
+3=
+4=
+
+[ProjectLog]
+Days=3
+D1=26-10-2022
+D1_L=11
+D1_L1=[83825]Stopped Editing.
+TotalEdit=107
+TotalDebug=0
+D1_E=13
+D1_D=0
+D1_L2=[83825]Project Closed.
+D1_L3=[83903]Project Opened.
+D1_L4=[83932]Started Editing.
+D1_L5=[84232]Stopped Editing.
+D1_L6=[84234]Started Editing.
+D1_L7=[84638]Stopped Editing.
+D1_L8=[84638]Project Closed.
+D1_L9=[84661]Project Opened.
+D1_L10=[84670]Started Editing.
+D1_L11=[85348]Stopped Editing.
+D2=27-10-2022
+D2_L=45
+D2_L1=[297]Started Editing.
+D2_L2=[1006]Stopped Editing.
+D2_L3=[3864]Started Editing.
+D2_L4=[5676]Project Closed.
+D2_L5=[6098]Project Opened.
+D2_L6=[6105]Started Editing.
+D2_L7=[6370]Stopped Editing.
+D2_E=94
+D2_D=0
+D2_L8=[6394]Started Editing.
+D2_L9=[6459]Stopped Editing.
+D2_L10=[6459]Project Closed.
+D2_L11=[6468]Project Opened.
+D2_L12=[6597]Started Editing.
+D2_L13=[7675]Stopped Editing.
+D2_L14=[7707]Started Editing.
+D2_L15=[8406]Stopped Editing.
+D2_L16=[8449]Started Editing.
+D2_L17=[8695]Stopped Editing.
+D2_L18=[8726]Started Editing.
+D2_L19=[9937]Stopped Editing.
+D2_L20=[9943]Started Editing.
+D2_L21=[10897]Stopped Editing.
+D2_L22=[11000]Started Editing.
+D2_L23=[12197]Stopped Editing.
+D2_L24=[12207]Started Editing.
+D2_L25=[12502]Stopped Editing.
+D2_L26=[12502]Project Closed.
+D2_L27=[63378]Project Opened.
+D2_L28=[63426]Started Editing.
+D2_L29=[63978]Stopped Editing.
+D2_L30=[64516]Started Editing.
+D2_L31=[64816]Stopped Editing.
+D2_L32=[65842]Started Editing.
+D2_L33=[66658]Stopped Editing.
+D2_L34=[68128]Project Opened.
+D2_L35=[68585]Started Editing.
+D2_L36=[69658]Stopped Editing.
+D2_L37=[70460]Started Editing.
+D2_L38=[70880]Stopped Editing.
+D2_L39=[73132]Started Editing.
+D2_L40=[73443]Stopped Editing.
+D2_L41=[74039]Started Editing.
+D2_L42=[74408]Stopped Editing.
+D2_L43=[74687]Started Editing.
+D2_L44=[74987]Stopped Editing.
+D2_L45=[77782]Project Closed.
+D3=30-10-2022
+D3_L=5
+D3_L1=[48705]Project Opened.
+D3_L2=[48738]Started Editing.
+D3_L3=[48797]Project Closed.
+D3_L4=[85562]Project Opened.
+D3_L5=[85572]Project Closed.
+[Units]
+Count=1
+1=parcial2 (main)
